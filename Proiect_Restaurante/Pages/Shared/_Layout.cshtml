@@ -36,6 +36,63 @@
                     <partial name="_LoginPartial" />
                 </div>
             </div>
+            <button class="btn btn-primary" data-toggle="modal" data-target="#helpModal">Help</button>
+            <!-- Fereastra modală de ajutor -->
+            <div class="modal fade" id="helpModal" tabindex="-1" role="dialog" aria-labelledby="helpModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="helpModalLabel">Cum să folosești aplicația:</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <!-- Adaugă aici informații de ajutor -->
+                            <p>
+                                1. Cum pot face o rezervare?
+
+                                Includeți un ghid pas cu pas despre cum să utilizeze funcționalitatea de rezervare în aplicație.
+                                Pot face rezervări la mai multe restaurante simultan?
+ 
+                            <p>
+                                2. Exista posibilitatea de a face rezervări pentru diferite restaurante în același timp.
+                            </p>
+                            <p>
+                                Specificați detaliile pe care utilizatorii trebuie să le completeze pentru a finaliza o rezervare (număr de persoane, data, ora, etc.).
+                               3. Cum pot să scriu o recenzie pentru un restaurant?
+
+                                Oferiți ghid pas cu pas despre cum să adăugați recenzii și evaluări pentru restaurantele vizitate.
+                                Pot să văd recenziile altor utilizatori înainte de a face o rezervare?
+                            </p>
+                            <p>
+                               4. Explicați cum utilizatorii pot accesa și citi recenzii ale altor clienți pentru a face o alegere informată.
+                                Ce informații despre restaurante sunt disponibile în aplicație?
+
+                                Enumerați detaliile furnizate pentru fiecare restaurant, cum ar fi meniuri, orar de funcționare, adresa și altele.
+                                Cum pot să contactez restaurantul pentru întrebări suplimentare?
+
+                            </p>
+                            <p>
+                                Furnizați informații de contact pentru fiecare restaurant sau opțiuni de mesagerie prin intermediul aplicației.
+                                Pot să fac rezervări pentru evenimente speciale sau grupuri mari?
+
+                                Oferiți claritate cu privire la posibilitatea de a face rezervări pentru evenimente speciale sau grupuri mai mari.
+
+                            </p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Închide</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Includeți Bootstrap JavaScript -->
+            <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
         </nav>
     </header>
     <div class="container">

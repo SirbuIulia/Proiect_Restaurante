@@ -22,27 +22,7 @@ namespace Proiect_Restaurante.Pages.Restaurante
         }
 
         [BindProperty]
-      public Restaurant Restaurant { get; set; } = default!;
-
-        public async Task<IActionResult> OnGetAsync(int? id)
-        {
-            if (id == null || _context.Restaurant == null)
-            {
-                return NotFound();
-            }
-
-            var restaurant = await _context.Restaurant.FirstOrDefaultAsync(m => m.ID == id);
-
-            if (restaurant == null)
-            {
-                return NotFound();
-            }
-            else 
-            {
-                Restaurant = restaurant;
-            }
-            return Page();
-        }
+        public Restaurant Restaurant { get; set; } = default!;
 
         public async Task<IActionResult> OnPostAsync(int? id)
         {
@@ -50,14 +30,29 @@ namespace Proiect_Restaurante.Pages.Restaurante
             {
                 return NotFound();
             }
-            var restaurant = await _context.Restaurant.FindAsync(id);
 
-            if (restaurant != null)
+            var restaurant = await _context.Restaurant
+                .Include(r => r.Rezervari) // Include related reservations
+                .FirstOrDefaultAsync(m => m.ID == id);
+
+            if (restaurant == null)
             {
-                Restaurant = restaurant;
-                _context.Restaurant.Remove(Restaurant);
+                return NotFound();
+            }
+
+            // Check if there are related reservations
+            if (restaurant.Rezervari != null && restaurant.Rezervari.Any())
+            {
+                // Handle related reservations (delete or update references)
+
+                // Example: Deleting related reservations
+                _context.Rezervare.RemoveRange(restaurant.Rezervari);
                 await _context.SaveChangesAsync();
             }
+
+            // Now you can safely delete the restaurant
+            _context.Restaurant.Remove(restaurant);
+            await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");
         }

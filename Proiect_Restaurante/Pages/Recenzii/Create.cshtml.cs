@@ -21,8 +21,8 @@ namespace Proiect_Restaurante.Pages.Recenzii
 
         public IActionResult OnGet()
         {
-        ViewData["ClientID"] = new SelectList(_context.Client, "ID", "ID");
-        ViewData["RestaurantID"] = new SelectList(_context.Set<Restaurant>(), "ID", "ID");
+        ViewData["ClientID"] = new SelectList(_context.Client, "ID", "Nume");
+        ViewData["RestaurantID"] = new SelectList(_context.Set<Restaurant>(), "ID", "Nume");
             return Page();
         }
 

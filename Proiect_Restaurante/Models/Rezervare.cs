@@ -17,12 +17,13 @@ namespace Proiect_Restaurante.Models
         [Required(ErrorMessage = "Numărul de persoane este obligatoriu.")]
         [Range(1, int.MaxValue, ErrorMessage = "Numărul de persoane trebuie să fie cel puțin 1.")]
         public int NumarMese { get; set; }
+        public DateTime DataRezervare => Data.Date.Add(Ora);
 
         public int? ClientID { get; set; }
         public Client? Client { get; set; }
 
         public int? RestaurantID { get; set; }
         public Restaurant? Restaurant { get; set; }
-        public DateTime DataRezervare { get; internal set; }
+       
     }
 }
