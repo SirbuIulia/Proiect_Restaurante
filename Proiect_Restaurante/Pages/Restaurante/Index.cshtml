@@ -1,0 +1,112 @@
+﻿@page "{id:int?}"
+@model Proiect_Restaurante.Pages.Restaurante.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<form asp-page="./Index" method="get">
+    <div class="form-actions no-color">
+        <p>
+            Gaseste Restaurantul dupa Nume/Adresa:
+            <input type="text" name="SearchString" value="@Model.CurrentFilter" />
+            <input type="submit" value="Search" class="btn btn-primary" /> |
+            <a asp-page="./Index">Inapoi la lista completa</a>
+        </p>
+    </div>
+</form>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Restaurant[0].Nume)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Restaurant[0].Adresa)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Restaurant[0].NrTelefon)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Restaurant[0].Website)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Restaurant[0].RatingTotal)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.RestaurantData.Restaurante)
+        {
+            string selectedRow = "";
+            if (item.ID == Model.RestaurantID)
+            {
+                selectedRow = "table-success";
+            }
+
+        <tr class="@selectedRow">
+            <td>
+                @Html.DisplayFor(modelItem => item.Nume)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Adresa)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NrTelefon)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Website)
+            </td>
+            <td>
+                    <div class="rating-text">@item.RatingTotal.ToString("0.0")/5</div>
+            </td>
+            <td>
+                <a asp-page="./Index" asp-route-id="@item.ID" asp-route-SearchString="@Model.CurrentFilter">Select</a> |
+                <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+
+@if (Model.RestaurantData.Recenzii != null)
+{
+    <h3>Recenziile Restaurantului Selectat</h3>
+    <table class="table">
+
+        @foreach (var item in Model.RestaurantData.Restaurante)
+        {
+            string selectedRow = "";
+            if (item.ID == Model.RestaurantID)
+            {
+                selectedRow = "table-success";
+            }
+            <tr class="@selectedRow">
+
+                <td>
+                    @{
+                        foreach (var b in item.Recenzii)
+                        {
+
+                            @b.Rating @: @b.Comentariu
+
+                            <br />
+                        }
+                    }
+                </td>
+            </tr>
+        }
+    </table>
+}
+
+
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>

@@ -1,0 +1,51 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+<div class="container mt-2">
+    <div class="text-center">
+        <img src="~/logo.jpg" alt="Logo" class="img-fluid mb-1" style="max-width: 170px;" />
+        <p class="display-4 mb-5" style="font-size: 2.5rem;">Bine ai venit!</p>
+    </div>
+</div>
+<p>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <section class="mb-4">
+                    <h2>Restaurantele Noastre</h2>
+                    <p>Ofertăm o varietate de restaurante cu bucate delicioase. Alege locația potrivită pentru tine!</p>
+                    <a asp-page="/Restaurante/Index" class="btn btn-info">Vezi Restaurantele</a>
+                </section>
+            </div>
+            <div class="col-md-6">
+                <section class="mb-4">
+                    <h2>Rezervări</h2>
+                    <p>Planifica-ti iesirile cu prietenii din timp! Nu ai încă o rezervare? Fă una acum!</p>
+                    <a asp-page="/Rezervari/Create" class="btn btn-primary">Fă o Rezervare</a>
+                </section>
+            </div>
+            <div class="col-md-6" style="align-content: center;">
+                <section class="mb-4">
+                    <h2>Recenzii</h2>
+                    <p>Vezi toate recenziile celor mai bune restaurante din oras.</p>
+                    <a asp-page="/Recenzii/Index" class="btn btn-primary">Vezi Recenziile</a>
+                </section>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <section style="text-align: center;">
+                    <h2>Contactează-ne</h2>
+                    <p>Ai întrebări sau feedback? Contactează-ne prin email sau telefon.</p>
+                    <p>Email: <a href="mailto:info@celemaibunerestaurante.com">info@celemaibunerestaurante.com</a></p>
+                    <p>Telefon: 075-734-974</p>
+                </section>
+            </div>
+        </div>
+    </div>
